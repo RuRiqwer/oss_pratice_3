@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HWPX Viewer</title>
+<style>
+  body { margin: 0; font-family: "Malgun Gothic", "Noto Sans KR", sans-serif; background: #e9ecef; color: #222; }
+  header { background: #1f2a44; color: #fff; padding: 14px 24px; }
+  header h1 { margin: 0; font-size: 20px; }
+  main { max-width: 960px; margin: 0 auto; padding: 16px; }
+  #drop { border: 2px dashed #8a94a6; border-radius: 10px; padding: 28px; text-align: center; background: #fff; }
+  #drop.over { border-color: #2e7d6b; background: #eaf5f2; }
+  #status { margin: 10px 0; min-height: 1.4em; font-size: 14px; }
+  #status.error { color: #c0392b; }
+  details { background: #fff; border-radius: 8px; padding: 8px 14px; margin-bottom: 12px; }
+  #tree { font-size: 12px; max-height: 200px; overflow: auto; }
+  .sheet { background: #fff; margin: 0 auto 20px; box-shadow: 0 2px 8px rgba(0,0,0,.2); box-sizing: border-box; max-width: 100%; overflow-x: auto; }
+  .hwpx-p { min-height: 1em; white-space: pre-wrap; word-break: break-all; font-size: 10pt; }
+  .hwpx-tbl { border-collapse: collapse; max-width: 100%; margin: 4px 0; }
+  .hwpx-tbl td { border: 1px solid #777; padding: 2px 4px; vertical-align: top; }
+  .missing { background: #fdecea; color: #c0392b; font-size: 12px; padding: 2px 6px; }
+</style>
+</head>
+<body>
+<header><h1>HWPX Viewer <small>- 오픈소스 소프트웨어 실습</small></h1></header>
+<main>
+  <div id="drop">
+    <p>.hwpx 또는 .docx 파일을 여기로 끌어다 놓거나 선택하세요</p>
+    <input type="file" id="file" accept=".hwpx,.docx">
+  </div>
+  <div id="status"></div>
+  <details id="structure" hidden>
+    <summary>문서 내부 구조 (ZIP 엔트리)</summary>
+    <pre id="tree"></pre>
+  </details>
+  <div id="viewer"></div>
+</main>
+<!-- 오픈소스 라이브러리: JSZip (MIT) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
